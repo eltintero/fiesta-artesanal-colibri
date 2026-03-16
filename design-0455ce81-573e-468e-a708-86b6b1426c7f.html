@@ -1,0 +1,667 @@
+<html lang="es" class="scroll-smooth" vid="0"><head vid="1">
+    <meta charset="UTF-8" vid="2">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" vid="3">
+    <title vid="4">Design System - Fiesta Artesanal Colibrí</title>
+    <script src="https://cdn.tailwindcss.com/3.4.17" vid="5"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" vid="6">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" vid="7">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Quicksand:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" vid="8">
+    <script vid="9">
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Anton"', 'sans-serif'],
+                        sans: ['"Quicksand"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0f1715',
+                            light: '#f7f5f0',
+                            accent: '#c04a33',
+                            sage: '#738678',
+                            sand: '#e8e4d9',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style vid="10">
+        ::selection {
+            background-color: #c04a33;
+            color: #f7f5f0;
+        }
+        .headline-spacing {
+            letter-spacing: -0.02em;
+        }
+        .ds-section-title {
+            @apply font-serif text-5xl md:text-7xl uppercase headline-spacing text-brand-dark mb-12 pb-6 border-b-2 border-brand-sand;
+        }
+        .ds-component-wrapper {
+            @apply p-8 bg-white border border-brand-sand rounded-2xl mb-8 overflow-hidden;
+        }
+        .ds-label {
+            @apply text-brand-sage uppercase tracking-[0.2em] font-black text-xs mb-4 block;
+        }
+        
+        
+        .dark .ds-section-title {
+            @apply text-brand-light border-brand-dark/50;
+        }
+        .dark .ds-component-wrapper {
+            @apply bg-brand-dark border-brand-sage/30;
+        }
+    </style>
+</head>
+<body class="bg-brand-light text-brand-dark font-sans antialiased flex overflow-hidden w-full h-screen" vid="11">
+
+    
+    <aside class="w-64 bg-brand-dark text-brand-light h-full flex flex-col flex-shrink-0 z-20 border-r border-brand-dark" vid="12">
+        <div class="p-8 border-b border-white/10" vid="13">
+            <div class="font-serif text-3xl tracking-tighter uppercase text-white mb-2 leading-none" vid="14">Colibrí</div>
+            <div class="text-[10px] uppercase tracking-[0.3em] text-brand-accent font-bold" vid="15">Design System</div>
+        </div>
+        <nav class="flex-1 overflow-y-auto p-8 space-y-6 text-sm uppercase tracking-widest font-bold text-brand-light/60" vid="16">
+            <div vid="17">
+                <div class="text-xs text-brand-sage mb-4 tracking-[0.2em]" vid="18">Foundations</div>
+                <ul class="space-y-3" vid="19">
+                    <li vid="20"><a href="#colors" class="hover:text-brand-accent transition-colors" vid="21">Colors</a></li>
+                    <li vid="22"><a href="#typography" class="hover:text-brand-accent transition-colors" vid="23">Typography</a></li>
+                    <li vid="24"><a href="#iconography" class="hover:text-brand-accent transition-colors" vid="25">Iconography</a></li>
+                </ul>
+            </div>
+            <div vid="26">
+                <div class="text-xs text-brand-sage mb-4 tracking-[0.2em]" vid="27">Components</div>
+                <ul class="space-y-3" vid="28">
+                    <li vid="29"><a href="#buttons" class="hover:text-brand-accent transition-colors" vid="30">Buttons</a></li>
+                    <li vid="31"><a href="#forms" class="hover:text-brand-accent transition-colors" vid="32">Form Elements</a></li>
+                    <li vid="33"><a href="#cards" class="hover:text-brand-accent transition-colors" vid="34">Cards</a></li>
+                    <li vid="35"><a href="#badges" class="hover:text-brand-accent transition-colors" vid="36">Badges &amp; Tags</a></li>
+                    <li vid="37"><a href="#navigation" class="hover:text-brand-accent transition-colors" vid="38">Navigation</a></li>
+                </ul>
+            </div>
+        </nav>
+    </aside>
+
+    
+    <main class="flex-1 h-full overflow-y-auto bg-brand-light relative scroll-smooth" vid="39">
+        
+        <header class="bg-brand-dark px-12 py-24 text-white" vid="40">
+            <div class="max-w-5xl mx-auto" vid="41">
+                <p class="text-brand-sage uppercase tracking-[0.4em] font-bold text-xs mb-4" vid="42">Design System 1.0</p>
+                <h1 class="font-serif text-6xl md:text-8xl leading-[0.85] headline-spacing uppercase" vid="43">
+                    Fiesta Artesanal<br vid="44">
+                    <span class="text-brand-accent" vid="45">Colibrí</span>
+                </h1>
+                <p class="mt-8 text-brand-light/80 font-medium text-xl max-w-2xl border-l-2 border-brand-accent pl-6" vid="46">
+                    The visual language and component library defining the active, outdoorsy, and culturally rich aesthetic of the Colibrí brand.
+                </p>
+            </div>
+        </header>
+
+        <div class="p-12 max-w-6xl mx-auto space-y-32" vid="47">
+
+            
+            <section id="colors" class="pt-8" vid="48">
+                <h2 class="ds-section-title" vid="49">Colors</h2>
+                <p class="mb-8 text-lg font-medium text-brand-dark/70 max-w-3xl" vid="50">Our palette is inspired by the natural elements of the Riviera Maya: deep jungle greens, warm sand, terracotta earth, and muted sage leaves.</p>
+
+                <div class="space-y-12" vid="51">
+                    
+                    <div vid="52">
+                        <span class="ds-label" vid="53">Brand Primary</span>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-6" vid="54">
+                            
+                            <div class="group rounded-xl overflow-hidden shadow-sm border border-brand-sand transition-transform hover:-translate-y-1" vid="55">
+                                <div class="h-32 bg-brand-dark w-full" vid="56"></div>
+                                <div class="p-4 bg-white" vid="57">
+                                    <div class="font-bold text-lg mb-1" vid="58">Dark Forest</div>
+                                    <div class="flex justify-between items-center text-sm font-medium" vid="59">
+                                        <span class="text-brand-dark/60" vid="60">HEX</span>
+                                        <span vid="61">#0f1715</span>
+                                    </div>
+                                    <div class="flex justify-between items-center text-xs mt-2 pt-2 border-t border-brand-sand" vid="62">
+                                        <span class="text-brand-dark/40" vid="63">Class</span>
+                                        <span class="font-mono bg-brand-sand/50 px-2 py-1 rounded" vid="64">bg-brand-dark</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="group rounded-xl overflow-hidden shadow-sm border border-brand-sand transition-transform hover:-translate-y-1" vid="65">
+                                <div class="h-32 bg-brand-accent w-full" vid="66"></div>
+                                <div class="p-4 bg-white" vid="67">
+                                    <div class="font-bold text-lg mb-1" vid="68">Terracotta Accent</div>
+                                    <div class="flex justify-between items-center text-sm font-medium" vid="69">
+                                        <span class="text-brand-dark/60" vid="70">HEX</span>
+                                        <span vid="71">#c04a33</span>
+                                    </div>
+                                    <div class="flex justify-between items-center text-xs mt-2 pt-2 border-t border-brand-sand" vid="72">
+                                        <span class="text-brand-dark/40" vid="73">Class</span>
+                                        <span class="font-mono bg-brand-sand/50 px-2 py-1 rounded" vid="74">bg-brand-accent</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="group rounded-xl overflow-hidden shadow-sm border border-brand-sand transition-transform hover:-translate-y-1" vid="75">
+                                <div class="h-32 bg-brand-light w-full border-b border-brand-sand/30" vid="76"></div>
+                                <div class="p-4 bg-white" vid="77">
+                                    <div class="font-bold text-lg mb-1" vid="78">Warm Sand (Light)</div>
+                                    <div class="flex justify-between items-center text-sm font-medium" vid="79">
+                                        <span class="text-brand-dark/60" vid="80">HEX</span>
+                                        <span vid="81">#f7f5f0</span>
+                                    </div>
+                                    <div class="flex justify-between items-center text-xs mt-2 pt-2 border-t border-brand-sand" vid="82">
+                                        <span class="text-brand-dark/40" vid="83">Class</span>
+                                        <span class="font-mono bg-brand-sand/50 px-2 py-1 rounded" vid="84">bg-brand-light</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div vid="85">
+                        <span class="ds-label" vid="86">Secondary &amp; Neutrals</span>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-6" vid="87">
+                            
+                            <div class="group rounded-xl overflow-hidden shadow-sm border border-brand-sand transition-transform hover:-translate-y-1" vid="88">
+                                <div class="h-32 bg-brand-sage w-full" vid="89"></div>
+                                <div class="p-4 bg-white" vid="90">
+                                    <div class="font-bold text-lg mb-1" vid="91">Sage Green</div>
+                                    <div class="flex justify-between items-center text-sm font-medium" vid="92">
+                                        <span class="text-brand-dark/60" vid="93">HEX</span>
+                                        <span vid="94">#738678</span>
+                                    </div>
+                                    <div class="flex justify-between items-center text-xs mt-2 pt-2 border-t border-brand-sand" vid="95">
+                                        <span class="text-brand-dark/40" vid="96">Class</span>
+                                        <span class="font-mono bg-brand-sand/50 px-2 py-1 rounded" vid="97">bg-brand-sage</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="group rounded-xl overflow-hidden shadow-sm border border-brand-sand transition-transform hover:-translate-y-1" vid="98">
+                                <div class="h-32 bg-brand-sand w-full" vid="99"></div>
+                                <div class="p-4 bg-white" vid="100">
+                                    <div class="font-bold text-lg mb-1" vid="101">Sand Base</div>
+                                    <div class="flex justify-between items-center text-sm font-medium" vid="102">
+                                        <span class="text-brand-dark/60" vid="103">HEX</span>
+                                        <span vid="104">#e8e4d9</span>
+                                    </div>
+                                    <div class="flex justify-between items-center text-xs mt-2 pt-2 border-t border-brand-sand" vid="105">
+                                        <span class="text-brand-dark/40" vid="106">Class</span>
+                                        <span class="font-mono bg-brand-sand/50 px-2 py-1 rounded" vid="107">bg-brand-sand</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            
+            <section id="typography" class="pt-8" vid="108">
+                <h2 class="ds-section-title" vid="109">Typography</h2>
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-12" vid="110">
+                    
+                    <div class="md:col-span-5 space-y-8" vid="111">
+                        <div class="bg-brand-dark text-white p-8 rounded-2xl" vid="112">
+                            <div class="text-6xl font-serif uppercase headline-spacing mb-2" vid="113">Anton</div>
+                            <div class="text-sm font-sans font-medium text-brand-light/70 mb-4" vid="114">Primary Headings • Bold • Condensed</div>
+                            <p class="font-sans text-sm" vid="115">A robust, condensed sans-serif that commands attention. Used exclusively for large, impactful headlines in uppercase, defining our strong, confident visual voice.</p>
+                        </div>
+                        
+                        <div class="bg-white border-2 border-brand-sand p-8 rounded-2xl" vid="116">
+                            <div class="text-5xl font-sans font-bold mb-2" vid="117">Quicksand</div>
+                            <div class="text-sm font-sans font-medium text-brand-dark/50 mb-4" vid="118">Body Copy • Rounded • Friendly</div>
+                            <p class="font-sans text-sm font-medium text-brand-dark/80" vid="119">A display sans serif with rounded terminals. Provides a friendly, approachable counterpoint to the bold, structured Anton. Used for all body text, UI elements, and smaller subheadings.</p>
+                        </div>
+                    </div>
+
+                    <div class="md:col-span-7 space-y-10" vid="120">
+                        <div vid="121">
+                            <span class="ds-label" vid="122">Display &amp; Headings (Anton)</span>
+                            <div class="space-y-8 ds-component-wrapper bg-brand-sand/10" vid="123">
+                                <div class="flex flex-col md:flex-row md:items-baseline gap-4 border-b border-brand-dark/10 pb-4" vid="124">
+                                    <div class="w-24 text-sm font-bold text-brand-sage uppercase tracking-widest shrink-0" vid="125">H1</div>
+                                    <div class="font-serif text-6xl md:text-8xl leading-[0.85] uppercase headline-spacing truncate" vid="126">El Bosque</div>
+                                </div>
+                                <div class="flex flex-col md:flex-row md:items-baseline gap-4 border-b border-brand-dark/10 pb-4" vid="127">
+                                    <div class="w-24 text-sm font-bold text-brand-sage uppercase tracking-widest shrink-0" vid="128">H2</div>
+                                    <div class="font-serif text-5xl md:text-7xl leading-none uppercase headline-spacing truncate" vid="129">La Cultura</div>
+                                </div>
+                                <div class="flex flex-col md:flex-row md:items-baseline gap-4 border-b border-brand-dark/10 pb-4" vid="130">
+                                    <div class="w-24 text-sm font-bold text-brand-sage uppercase tracking-widest shrink-0" vid="131">H3</div>
+                                    <div class="font-serif text-4xl md:text-5xl uppercase headline-spacing truncate" vid="132">Nuestra Tierra</div>
+                                </div>
+                                <div class="flex flex-col md:flex-row md:items-baseline gap-4" vid="133">
+                                    <div class="w-24 text-sm font-bold text-brand-sage uppercase tracking-widest shrink-0" vid="134">H4</div>
+                                    <div class="font-serif text-3xl uppercase headline-spacing truncate" vid="135">Artesanía Viva</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div vid="136">
+                            <span class="ds-label" vid="137">Body &amp; UI Text (Quicksand)</span>
+                            <div class="space-y-8 ds-component-wrapper" vid="138">
+                                <div class="flex flex-col md:flex-row gap-4 border-b border-brand-sand pb-4" vid="139">
+                                    <div class="w-24 text-sm font-bold text-brand-sage uppercase tracking-widest shrink-0" vid="140">Large</div>
+                                    <div class="font-sans text-xl font-medium text-brand-dark/80 leading-relaxed" vid="141">
+                                        No se trata solo de exhibir artesanía, sino de ofrecer a los huéspedes un encuentro directo con los artesanos de la Riviera Maya.
+                                    </div>
+                                </div>
+                                <div class="flex flex-col md:flex-row gap-4 border-b border-brand-sand pb-4" vid="142">
+                                    <div class="w-24 text-sm font-bold text-brand-sage uppercase tracking-widest shrink-0" vid="143">Base</div>
+                                    <div class="font-sans text-base font-medium text-brand-dark/80 leading-relaxed" vid="144">
+                                        Esta experiencia enriquece la percepción hacia el hotel, fortalece su compromiso social y convierte cada visita en un recuerdo.
+                                    </div>
+                                </div>
+                                <div class="flex flex-col md:flex-row gap-4 border-b border-brand-sand pb-4" vid="145">
+                                    <div class="w-24 text-sm font-bold text-brand-sage uppercase tracking-widest shrink-0" vid="146">Small</div>
+                                    <div class="font-sans text-sm font-medium text-brand-dark/70 leading-relaxed" vid="147">
+                                        © 2024 Fiesta Artesanal Colibrí. Todos los derechos reservados.
+                                    </div>
+                                </div>
+                                <div class="flex flex-col md:flex-row gap-4" vid="148">
+                                    <div class="w-24 text-sm font-bold text-brand-sage uppercase tracking-widest shrink-0" vid="149">Eyebrow</div>
+                                    <div class="font-sans text-xs uppercase tracking-[0.4em] font-bold text-brand-sage" vid="150">
+                                        Artesanía &amp; Cultura
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            
+            <section id="iconography" class="pt-8" vid="151">
+                <h2 class="ds-section-title" vid="152">Iconography</h2>
+                <p class="mb-8 text-lg font-medium text-brand-dark/70 max-w-3xl" vid="153">Using Feather icons for a clean, minimal, light-stroke design that complements our rounded body typeface and contrasts with the heavy display typography.</p>
+                
+                <div class="ds-component-wrapper bg-brand-sand/10" vid="154">
+                    <div class="grid grid-cols-4 md:grid-cols-8 gap-8" vid="155">
+                        <div class="flex flex-col items-center gap-3" vid="156">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-dark" vid="157"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" vid="158"></path><polyline points="22 4 12 14.01 9 11.01" vid="159"></polyline></svg>
+                            <span class="text-xs font-mono text-brand-dark/50" vid="160">Check</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-3" vid="161">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-dark" vid="162"><line x1="5" y1="12" x2="19" y2="12" vid="163"></line><polyline points="12 5 19 12 12 19" vid="164"></polyline></svg>
+                            <span class="text-xs font-mono text-brand-dark/50" vid="165">Arrow R</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-3" vid="166">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-dark" vid="167"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" vid="168"></path></svg>
+                            <span class="text-xs font-mono text-brand-dark/50" vid="169">Message</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-3" vid="170">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-dark" vid="171"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" vid="172"></rect><line x1="16" y1="2" x2="16" y2="6" vid="173"></line><line x1="8" y1="2" x2="8" y2="6" vid="174"></line><line x1="3" y1="10" x2="21" y2="10" vid="175"></line></svg>
+                            <span class="text-xs font-mono text-brand-dark/50" vid="176">Calendar</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-3" vid="177">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-dark" vid="178"><circle cx="12" cy="12" r="10" vid="179"></circle><line x1="12" y1="8" x2="12" y2="12" vid="180"></line><line x1="12" y1="16" x2="12.01" y2="16" vid="181"></line></svg>
+                            <span class="text-xs font-mono text-brand-dark/50" vid="182">Alert</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-3" vid="183">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-dark" vid="184"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" vid="185"></path></svg>
+                            <span class="text-xs font-mono text-brand-dark/50" vid="186">Phone</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-3" vid="187">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-dark" vid="188"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" vid="189"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96" vid="190"></polyline><line x1="12" y1="22.08" x2="12" y2="12" vid="191"></line></svg>
+                            <span class="text-xs font-mono text-brand-dark/50" vid="192">Package</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-3" vid="193">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-dark" vid="194"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" vid="195"></path></svg>
+                            <span class="text-xs font-mono text-brand-dark/50" vid="196">Shield</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            
+            <section id="buttons" class="pt-8" vid="197">
+                <h2 class="ds-section-title" vid="198">Buttons</h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8" vid="199">
+                    
+                    <div vid="200">
+                        <span class="ds-label" vid="201">Variants (Default State)</span>
+                        <div class="ds-component-wrapper flex flex-col items-start gap-6 bg-brand-sand/10" vid="202">
+                            
+                            <div class="flex items-center gap-8 w-full" vid="203">
+                                <button class="bg-brand-accent text-white px-8 py-4 rounded-full text-xs uppercase tracking-widest font-bold hover:brightness-110 transition-all shadow-md shadow-brand-accent/20" vid="204">
+                                    Primary Action
+                                </button>
+                                <span class="text-sm font-mono text-brand-dark/50 hidden md:block" vid="205">.bg-brand-accent</span>
+                            </div>
+                            
+                            
+                            <div class="flex items-center gap-8 w-full border-t border-brand-sand pt-6" vid="206">
+                                <button class="bg-brand-dark text-white px-8 py-4 rounded-full text-xs uppercase tracking-widest font-bold hover:bg-black transition-colors" vid="207">
+                                    Secondary Action
+                                </button>
+                                <span class="text-sm font-mono text-brand-dark/50 hidden md:block" vid="208">.bg-brand-dark</span>
+                            </div>
+
+                            
+                            <div class="flex items-center gap-8 w-full border-t border-brand-sand pt-6" vid="209">
+                                <button class="border-2 border-brand-dark text-brand-dark px-8 py-3.5 rounded-full text-xs uppercase tracking-widest font-bold hover:bg-brand-dark hover:text-white transition-colors" vid="210">
+                                    Outline Button
+                                </button>
+                                <span class="text-sm font-mono text-brand-dark/50 hidden md:block" vid="211">.border-2 .border-brand-dark</span>
+                            </div>
+
+                            
+                            <div class="flex items-center gap-8 w-full border-t border-brand-sand pt-6" vid="212">
+                                <button class="text-brand-dark px-4 py-2 text-xs uppercase tracking-widest font-bold hover:text-brand-accent transition-colors flex items-center gap-2 group" vid="213">
+                                    Text Link Button
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform" vid="214"><line x1="5" y1="12" x2="19" y2="12" vid="215"></line><polyline points="12 5 19 12 12 19" vid="216"></polyline></svg>
+                                </button>
+                                <span class="text-sm font-mono text-brand-dark/50 hidden md:block" vid="217">.text-brand-dark .hover:text-brand-accent</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div vid="218">
+                        <span class="ds-label" vid="219">States (Primary Example)</span>
+                        <div class="ds-component-wrapper flex flex-col items-start gap-6" vid="220">
+                            
+                            
+                            <div class="flex flex-col gap-2 w-full" vid="221">
+                                <span class="text-xs font-bold text-brand-sage uppercase" vid="222">Hover</span>
+                                <button class="bg-[#d4563d] text-white px-8 py-4 rounded-full text-xs uppercase tracking-widest font-bold shadow-lg shadow-brand-accent/30 translate-y-[-2px] cursor-pointer w-fit" vid="223">
+                                    Hover State
+                                </button>
+                            </div>
+                            
+                            
+                            <div class="flex flex-col gap-2 w-full border-t border-brand-sand pt-6" vid="224">
+                                <span class="text-xs font-bold text-brand-sage uppercase" vid="225">Focus-Visible</span>
+                                <button class="bg-brand-accent text-white px-8 py-4 rounded-full text-xs uppercase tracking-widest font-bold outline-none ring-4 ring-brand-accent/30 ring-offset-2 ring-offset-white w-fit" vid="226">
+                                    Focus State
+                                </button>
+                            </div>
+
+                            
+                            <div class="flex flex-col gap-2 w-full border-t border-brand-sand pt-6" vid="227">
+                                <span class="text-xs font-bold text-brand-sage uppercase" vid="228">Disabled</span>
+                                <button class="bg-brand-sand text-brand-sage px-8 py-4 rounded-full text-xs uppercase tracking-widest font-bold cursor-not-allowed opacity-70 w-fit" vid="229">
+                                    Disabled State
+                                </button>
+                            </div>
+                        </div>
+
+                        
+                        <span class="ds-label mt-8" vid="230">Sizes</span>
+                        <div class="ds-component-wrapper flex flex-wrap items-end gap-6 bg-brand-sand/10" vid="231">
+                            <button class="bg-brand-dark text-white px-5 py-2.5 rounded-full text-[10px] uppercase tracking-widest font-bold" vid="232">
+                                Small
+                            </button>
+                            <button class="bg-brand-dark text-white px-8 py-4 rounded-full text-xs uppercase tracking-widest font-bold" vid="233">
+                                Default
+                            </button>
+                            <button class="bg-brand-dark text-white px-10 py-5 rounded-full text-sm uppercase tracking-widest font-bold" vid="234">
+                                Large
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            
+            <section id="forms" class="pt-8" vid="235">
+                <h2 class="ds-section-title" vid="236">Form Elements</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12" vid="237">
+                    
+                    
+                    <div vid="238">
+                        <span class="ds-label" vid="239">Text Inputs</span>
+                        <div class="ds-component-wrapper space-y-6" vid="240">
+                            
+                            
+                            <div class="flex flex-col gap-2" vid="241">
+                                <label for="input-default" class="font-bold text-sm text-brand-dark ml-1" vid="242">Full Name</label>
+                                <input type="text" id="input-default" placeholder="Ej. Maria Guadalupe" class="w-full bg-brand-light border-2 border-brand-sand rounded-xl px-5 py-3.5 text-brand-dark font-medium placeholder:text-brand-sage/60 outline-none focus:border-brand-accent focus:bg-white transition-all" vid="243">
+                                <span class="text-xs text-brand-sage font-medium ml-1" vid="244">Enter your legal name as it appears on your ID.</span>
+                            </div>
+
+                            
+                            <div class="flex flex-col gap-2" vid="245">
+                                <label for="input-focus" class="font-bold text-sm text-brand-dark ml-1" vid="246">Email Address <span class="text-brand-accent" vid="247">*</span></label>
+                                <input type="email" id="input-focus" value="maria@ejemplo.com" class="w-full bg-white border-2 border-brand-accent rounded-xl px-5 py-3.5 text-brand-dark font-medium outline-none ring-4 ring-brand-accent/10 transition-all" vid="248">
+                            </div>
+
+                            
+                            <div class="flex flex-col gap-2" vid="249">
+                                <label for="input-error" class="font-bold text-sm text-red-600 ml-1" vid="250">Phone Number</label>
+                                <div class="relative" vid="251">
+                                    <input type="tel" id="input-error" value="998" class="w-full bg-red-50/50 border-2 border-red-500 rounded-xl px-5 py-3.5 text-brand-dark font-medium outline-none transition-all pr-12" vid="252">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-500 absolute right-4 top-1/2 -translate-y-1/2" vid="253"><circle cx="12" cy="12" r="10" vid="254"></circle><line x1="12" y1="8" x2="12" y2="12" vid="255"></line><line x1="12" y1="16" x2="12.01" y2="16" vid="256"></line></svg>
+                                </div>
+                                <span class="text-xs text-red-600 font-bold ml-1" vid="257">Please enter a valid 10-digit number.</span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    
+                    <div vid="258">
+                        <span class="ds-label" vid="259">Selection Controls &amp; Textarea</span>
+                        <div class="ds-component-wrapper space-y-8 bg-brand-sand/10" vid="260">
+                            
+                            
+                            <div class="flex flex-col gap-2" vid="261">
+                                <label class="font-bold text-sm text-brand-dark ml-1" vid="262">Workshop Type</label>
+                                <div class="relative" vid="263">
+                                    <select class="w-full appearance-none bg-white border-2 border-brand-sand rounded-xl px-5 py-3.5 text-brand-dark font-medium outline-none focus:border-brand-accent cursor-pointer transition-all" vid="264">
+                                        <option value="" disabled="" selected="" vid="265">Select an option...</option>
+                                        <option value="1" vid="266">Paisajes con dedos (óleo)</option>
+                                        <option value="2" vid="267">Pintando cerámica</option>
+                                        <option value="3" vid="268">Tejiendo tu nombre</option>
+                                    </select>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-sage absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none" vid="269"><polyline points="6 9 12 15 18 9" vid="270"></polyline></svg>
+                                </div>
+                            </div>
+
+                            
+                            <div class="grid grid-cols-2 gap-6" vid="271">
+                                <div class="space-y-4" vid="272">
+                                    <span class="font-bold text-sm text-brand-dark block mb-2" vid="273">Amenities</span>
+                                    <label class="flex items-center gap-3 cursor-pointer group" vid="274">
+                                        <div class="w-5 h-5 rounded border-2 border-brand-sage flex items-center justify-center group-hover:border-brand-accent transition-colors" vid="275"></div>
+                                        <span class="font-medium text-sm text-brand-dark" vid="276">Transport</span>
+                                    </label>
+                                    <label class="flex items-center gap-3 cursor-pointer group" vid="277">
+                                        <div class="w-5 h-5 rounded border-2 border-brand-accent bg-brand-accent flex items-center justify-center" vid="278">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" vid="279"><polyline points="20 6 9 17 4 12" vid="280"></polyline></svg>
+                                        </div>
+                                        <span class="font-medium text-sm text-brand-dark" vid="281">Materials included</span>
+                                    </label>
+                                </div>
+                                <div class="space-y-4" vid="282">
+                                    <span class="font-bold text-sm text-brand-dark block mb-2" vid="283">Experience Level</span>
+                                    <label class="flex items-center gap-3 cursor-pointer group" vid="284">
+                                        <div class="w-5 h-5 rounded-full border-2 border-brand-accent flex items-center justify-center" vid="285">
+                                            <div class="w-2.5 h-2.5 rounded-full bg-brand-accent" vid="286"></div>
+                                        </div>
+                                        <span class="font-medium text-sm text-brand-dark" vid="287">Beginner</span>
+                                    </label>
+                                    <label class="flex items-center gap-3 cursor-pointer group" vid="288">
+                                        <div class="w-5 h-5 rounded-full border-2 border-brand-sage flex items-center justify-center group-hover:border-brand-accent transition-colors" vid="289"></div>
+                                        <span class="font-medium text-sm text-brand-dark" vid="290">Advanced</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            
+                            <div class="flex flex-col gap-2" vid="291">
+                                <label class="font-bold text-sm text-brand-dark ml-1" vid="292">Special Requirements</label>
+                                <textarea rows="3" placeholder="Any dietary restrictions or accessibility needs..." class="w-full bg-white border-2 border-brand-sand rounded-xl px-5 py-3.5 text-brand-dark font-medium placeholder:text-brand-sage/60 outline-none focus:border-brand-accent transition-all resize-none" vid="293"></textarea>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            
+            <section id="cards" class="pt-8" vid="294">
+                <h2 class="ds-section-title" vid="295">Cards &amp; Containers</h2>
+                
+                <div class="space-y-12" vid="296">
+                    
+                    
+                    <div vid="297">
+                        <span class="ds-label" vid="298">Media / Service Card</span>
+                        <div class="ds-component-wrapper bg-brand-dark p-12" vid="299">
+                            <div class="w-full max-w-sm group cursor-pointer" vid="300">
+                                <div class="relative overflow-hidden aspect-[3/4] mb-6 rounded-2xl bg-brand-sage/20" vid="301">
+                                    <div class="absolute inset-0 bg-brand-dark/20 z-10 group-hover:bg-transparent transition-colors duration-500" vid="302"></div>
+                                    
+                                    <img src="https://images.unsplash.com/photo-1555529733-0e67056058bb?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="Stands Premium" class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700 ease-out" vid="303">
+                                </div>
+                                <h3 class="font-serif text-4xl mb-3 text-brand-accent uppercase headline-spacing" vid="304">Stands Premium</h3>
+                                <p class="text-brand-light/80 font-medium leading-relaxed" vid="305">Estructuras de madera de alta calidad, minimalistas y autosustentables con iluminación propia. Sin necesidad de conexión eléctrica.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8" vid="306">
+                        
+                        <div vid="307">
+                            <span class="ds-label" vid="308">Numbered Value Card (Row)</span>
+                            <div class="ds-component-wrapper h-full flex items-center" vid="309">
+                                <div class="group flex flex-col sm:flex-row p-6 hover:bg-brand-sand/30 transition-colors duration-500 rounded-xl cursor-pointer w-full" vid="310">
+                                    <div class="w-full sm:w-32 font-serif text-6xl text-brand-dark/10 group-hover:text-brand-accent transition-colors duration-500 mb-4 sm:mb-0 headline-spacing" vid="311">01</div>
+                                    <div class="flex-1" vid="312">
+                                        <h3 class="font-sans font-bold text-2xl uppercase tracking-tight mb-2" vid="313">Orgullo Local</h3>
+                                        <div class="text-brand-dark/80 text-sm" vid="314">
+                                            <p class="mb-2 font-bold" vid="315">Apoyar el talento local es invertir en la identidad.</p>
+                                            <p class="font-medium" vid="316">Valoramos nuestra cultura y creemos en nuestra gente, mostrando artesanos locales reales.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <div vid="317">
+                            <span class="ds-label" vid="318">Data / Stat Highlight</span>
+                            <div class="ds-component-wrapper h-full flex flex-col justify-center bg-brand-sand/10" vid="319">
+                                <div class="border-l-4 border-brand-accent pl-6 py-2" vid="320">
+                                    <div class="font-serif text-7xl text-brand-dark mb-1 headline-spacing leading-none" vid="321">45</div>
+                                    <div class="font-black uppercase tracking-widest text-xs text-brand-sage mb-2" vid="322">Minutos</div>
+                                    <p class="text-sm font-bold text-brand-dark/70 max-w-[200px]" vid="323">Duración ideal para una experiencia completa sin interrumpir las vacaciones.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div vid="324">
+                        <span class="ds-label" vid="325">Highlight Container</span>
+                        <div class="ds-component-wrapper" vid="326">
+                            <div class="bg-brand-sand/20 p-8 md:p-12 border-2 border-brand-sand rounded-3xl" vid="327">
+                                <h3 class="font-serif text-4xl mb-8 border-b-2 border-brand-dark/10 pb-4 uppercase headline-spacing" vid="328">Tipos de Talleres Disponibles</h3>
+                                <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-6 gap-x-8 text-brand-dark font-bold text-sm md:text-base" vid="329">
+                                    <li class="flex items-center gap-3" vid="330">
+                                        <span class="w-3 h-3 rounded-full bg-brand-accent flex-shrink-0" vid="331"></span> Paisajes con dedos (óleo)
+                                    </li>
+                                    <li class="flex items-center gap-3" vid="332">
+                                        <span class="w-3 h-3 rounded-full bg-brand-accent flex-shrink-0" vid="333"></span> Pintando cerámica
+                                    </li>
+                                    <li class="flex items-center gap-3" vid="334">
+                                        <span class="w-3 h-3 rounded-full bg-brand-accent flex-shrink-0" vid="335"></span> Tejiendo tu nombre
+                                    </li>
+                                    <li class="flex items-center gap-3" vid="336">
+                                        <span class="w-3 h-3 rounded-full bg-brand-accent flex-shrink-0" vid="337"></span> Pintando sombreros
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            
+            <section id="badges" class="pt-8" vid="338">
+                <h2 class="ds-section-title" vid="339">Badges &amp; Elements</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8" vid="340">
+                    <div vid="341">
+                        <span class="ds-label" vid="342">Status Tags</span>
+                        <div class="ds-component-wrapper flex flex-wrap gap-4 items-center" vid="343">
+                            <span class="px-3 py-1 bg-brand-sage/20 text-brand-sage font-bold uppercase tracking-widest text-[10px] rounded-full" vid="344">New</span>
+                            <span class="px-3 py-1 bg-brand-accent/10 text-brand-accent font-bold uppercase tracking-widest text-[10px] rounded-full" vid="345">Popular</span>
+                            <span class="px-3 py-1 bg-brand-dark/10 text-brand-dark font-bold uppercase tracking-widest text-[10px] rounded-full" vid="346">Classic</span>
+                            <span class="px-3 py-1 bg-white border border-brand-sand text-brand-dark/60 font-bold uppercase tracking-widest text-[10px] rounded-full shadow-sm" vid="347">Draft</span>
+                        </div>
+                    </div>
+                    
+                    <div vid="348">
+                        <span class="ds-label" vid="349">Decorative Dividers</span>
+                        <div class="ds-component-wrapper flex flex-col gap-8 bg-brand-sand/10" vid="350">
+                            
+                            <div class="w-full h-px bg-brand-dark/10" vid="351"></div>
+                            
+                            
+                            <div class="w-24 h-1.5 bg-brand-accent" vid="352"></div>
+                            
+                            
+                            <div class="h-12 w-1.5 bg-brand-accent rounded-full" vid="353"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            
+            <section id="navigation" class="pt-8 pb-32" vid="354">
+                <h2 class="ds-section-title" vid="355">Navigation Pattern</h2>
+                <span class="ds-label" vid="356">Top Navigation Bar (Dark Context)</span>
+                
+                <div class="ds-component-wrapper bg-brand-dark p-0 overflow-hidden relative min-h-[300px] flex items-start" vid="357">
+                    
+                    <div class="absolute inset-0 z-0" vid="358">
+                         <img src="https://images.unsplash.com/photo-1600096194534-95cf5ece04cf?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Bg" class="w-full h-full object-cover opacity-30 mix-blend-luminosity grayscale" vid="359">
+                         <div class="absolute inset-0 bg-gradient-to-b from-brand-dark/80 to-transparent" vid="360"></div>
+                    </div>
+                    
+                    
+                    <nav class="relative z-10 w-full px-8 py-6 flex justify-between items-center text-white" vid="361">
+                        <div class="font-serif text-3xl tracking-tighter uppercase cursor-pointer" vid="362">
+                            Colibrí
+                        </div>
+                        
+                        
+                        <div class="hidden lg:flex gap-8 text-sm uppercase tracking-widest font-bold" vid="363">
+                            <a href="#" class="hover:text-brand-accent transition-colors" vid="364">Nosotros</a>
+                            <a href="#" class="hover:text-brand-accent transition-colors" vid="365">Pilares</a>
+                            <a href="#" class="hover:text-brand-accent transition-colors" vid="366">Servicios</a>
+                            <a href="#" class="text-brand-accent transition-colors" vid="367">Talleres</a> 
+                            <a href="#" class="hover:text-brand-accent transition-colors" vid="368">Galería</a>
+                        </div>
+                        
+                        <div class="flex items-center gap-4" vid="369">
+                            <button class="bg-white text-black px-6 py-3 rounded-full text-xs uppercase tracking-widest font-bold hover:bg-brand-accent hover:text-white transition-colors duration-300 hidden sm:block shadow-lg" vid="370">
+                                Contáctanos
+                            </button>
+                            
+                            <button class="lg:hidden p-2 text-white hover:text-brand-accent transition-colors" vid="371">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" vid="372"><line x1="3" y1="12" x2="21" y2="12" vid="373"></line><line x1="3" y1="6" x2="21" y2="6" vid="374"></line><line x1="3" y1="18" x2="21" y2="18" vid="375"></line></svg>
+                            </button>
+                        </div>
+                    </nav>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+
+</body></html>
