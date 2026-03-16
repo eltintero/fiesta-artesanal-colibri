@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiesta Artesanal Colibrí | Experiencias Culturales para Hoteles</title>
+    <meta name="description" content="Una experiencia viva de cultura y artesanía local para hoteles de la Riviera Maya. Artesanos auténticos, talleres participativos y apoyo promocional.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="logo/fiesta-artesanal.png">
+    <meta property="og:title" content="Fiesta Artesanal Colibrí">
+    <meta property="og:description" content="Experiencias culturales auténticas para hoteles de la Riviera Maya">
+    <meta property="og:image" content="logo/fiesta-artesanal.png">
+    <meta property="og:type" content="website">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Anton"', 'sans-serif'],
+                        sans: ['"Quicksand"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0f1715',
+                            light: '#f7f5f0',
+                            accent: '#c04a33',
+                            sage: '#738678',
+                            sand: '#e8e4d9',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::selection {
+            background-color: #c04a33;
+            color: #f7f5f0;
+        }
+        .headline-spacing {
+            letter-spacing: -0.02em;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        /* Language toggle */
+        .lang-toggle {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+        .lang-toggle button {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 12px;
+            border-radius: 9999px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            color: rgba(255,255,255,0.7);
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .lang-toggle button:hover {
+            background: rgba(255,255,255,0.2);
+            color: white;
+        }
+        .lang-toggle button.active {
+            background: white;
+            color: #0f1715;
+            border-color: white;
+        }
+        .lang-toggle .flag {
+            font-size: 14px;
+            line-height: 1;
+        }
+        .nav-scrolled .lang-toggle button {
+            color: rgba(15,23,21,0.7);
+            background: rgba(15,23,21,0.05);
+            border-color: rgba(15,23,21,0.2);
+        }
+        .nav-scrolled .lang-toggle button:hover {
+            background: rgba(15,23,21,0.1);
+            color: #0f1715;
+        }
+        .nav-scrolled .lang-toggle button.active {
+            background: #0f1715;
+            color: white;
+            border-color: #0f1715;
+        }
+    </style>
+</head>
+<body class="bg-brand-light text-brand-dark font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav id="nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 py-6 flex justify-between items-center">
+            <a href="#hero" class="flex items-center gap-3">
+                <img src="logo/fiesta-artesanal.png" alt="Fiesta Artesanal Colibrí" class="h-20 md:h-24 w-auto drop-shadow-lg">
+            </a>
+
+            <!-- Desktop Nav -->
+            <div class="hidden lg:flex gap-8 text-sm uppercase tracking-widest font-bold text-white">
+                <a href="#nosotros" class="hover:text-brand-accent transition-colors" data-i18n="nav.about">Nosotros</a>
+                <a href="#pilares" class="hover:text-brand-accent transition-colors" data-i18n="nav.pillars">Pilares</a>
+                <a href="#servicios" class="hover:text-brand-accent transition-colors" data-i18n="nav.services">Servicios</a>
+                <a href="#talleres" class="hover:text-brand-accent transition-colors" data-i18n="nav.workshops">Talleres</a>
+                <a href="#galeria" class="hover:text-brand-accent transition-colors" data-i18n="nav.gallery">Galería</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <!-- Language Toggle -->
+                <div class="lang-toggle">
+                    <button id="langEs" class="active" onclick="setLanguage('es')"><span class="flag">🇲🇽</span> ES</button>
+                    <button id="langEn" onclick="setLanguage('en')"><span class="flag">🇺🇸</span> EN</button>
+                </div>
+
+                <a href="#contacto" class="bg-white text-brand-dark px-6 py-3 rounded-full text-xs uppercase tracking-widest font-bold hover:bg-brand-accent hover:text-white transition-colors duration-300 hidden sm:block shadow-lg" data-i18n="nav.contact">Contáctanos</a>
+
+                <!-- Mobile Toggle -->
+                <button id="mobileToggle" class="lg:hidden p-2 text-white hover:text-brand-accent transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="lg:hidden hidden bg-brand-dark/95 backdrop-blur-md border-t border-white/10">
+            <div class="px-6 py-8 flex flex-col gap-6 text-sm uppercase tracking-widest font-bold text-white">
+                <a href="#nosotros" class="hover:text-brand-accent transition-colors" data-i18n="nav.about">Nosotros</a>
+                <a href="#pilares" class="hover:text-brand-accent transition-colors" data-i18n="nav.pillars">Pilares</a>
+                <a href="#servicios" class="hover:text-brand-accent transition-colors" data-i18n="nav.services">Servicios</a>
+                <a href="#talleres" class="hover:text-brand-accent transition-colors" data-i18n="nav.workshops">Talleres</a>
+                <a href="#galeria" class="hover:text-brand-accent transition-colors" data-i18n="nav.gallery">Galería</a>
+                <a href="#contacto" class="bg-brand-accent text-white px-6 py-3 rounded-full text-center" data-i18n="nav.contact">Contáctanos</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center bg-brand-dark overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="images/photos/img-004-022.jpg" alt="Background" class="w-full h-full object-cover opacity-40 mix-blend-luminosity">
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-dark/60 via-brand-dark/40 to-brand-dark"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-6 lg:px-12 py-32 text-center">
+            <p class="text-brand-sage uppercase tracking-[0.4em] font-bold text-xs mb-6 reveal" data-i18n="hero.eyebrow">Experiencias Culturales para Hoteles</p>
+
+            <h1 class="font-serif text-5xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.85] headline-spacing uppercase text-white mb-8 reveal reveal-delay-1">
+                Fiesta<br>Artesanal<br>
+                <span class="text-brand-accent">Colibrí</span>
+            </h1>
+
+            <p class="text-brand-light/80 font-medium text-lg md:text-xl max-w-2xl mx-auto mb-12 reveal reveal-delay-2" data-i18n="hero.tagline">
+                Una experiencia viva: un encuentro auténtico donde cultura y talento local laten al mismo ritmo, dejando en cada huésped un recuerdo que permanece para siempre.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center reveal reveal-delay-3">
+                <a href="#contacto" class="bg-brand-accent text-white px-8 py-4 rounded-full text-xs uppercase tracking-widest font-bold hover:brightness-110 transition-all shadow-md shadow-brand-accent/20" data-i18n="hero.cta">
+                    Contáctanos
+                </a>
+                <a href="#nosotros" class="border-2 border-white text-white px-8 py-3.5 rounded-full text-xs uppercase tracking-widest font-bold hover:bg-white hover:text-brand-dark transition-colors" data-i18n="hero.cta2">
+                    Conoce Más
+                </a>
+            </div>
+        </div>
+
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white/50"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="nosotros" class="py-24 lg:py-32 bg-brand-light">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div class="relative reveal">
+                    <div class="aspect-[4/5] rounded-3xl overflow-hidden">
+                        <img src="images/photos/img-005-027.jpg" alt="Artesano trabajando" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-4 -right-4 w-24 h-1.5 bg-brand-accent rounded-full"></div>
+                </div>
+
+                <div>
+                    <p class="text-brand-sage uppercase tracking-[0.3em] font-bold text-xs mb-4 reveal" data-i18n="about.eyebrow">Sobre Nosotros</p>
+                    <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl uppercase headline-spacing text-brand-dark mb-8 reveal reveal-delay-1" data-i18n-html="about.title">
+                        Cultura que genera<br><span class="text-brand-accent">memorabilidad</span>
+                    </h2>
+
+                    <div class="space-y-6 text-brand-dark/80 font-medium leading-relaxed">
+                        <p class="reveal reveal-delay-2" data-i18n-html="about.p1">
+                            No se trata solo de exhibir artesanía, sino de ofrecer a los huéspedes <strong class="text-brand-dark">un encuentro directo con los artesanos</strong> de la Riviera Maya, donde pueden observar el proceso creativo, dialogar con quien da vida a cada pieza y adquirir obras auténticas directamente de su creador.
+                        </p>
+
+                        <div class="border-l-4 border-brand-accent pl-6 py-2 reveal reveal-delay-3">
+                            <p class="text-xl font-bold text-brand-dark" data-i18n="about.highlight">
+                                La Fiesta Artesanal Colibrí transforma los espacios en una experiencia viva de cultura, sensibilidad y autenticidad local.
+                            </p>
+                        </div>
+
+                        <p class="reveal reveal-delay-4" data-i18n-html="about.p2">
+                            Esta experiencia enriquece la percepción hacia el hotel, <strong class="text-brand-dark">fortalece su compromiso social</strong> y convierte cada visita en un recuerdo significativo que trasciende la estancia.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pillars Section -->
+    <section id="pilares" class="py-24 lg:py-32 bg-brand-sand/30">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center mb-16">
+                <p class="text-brand-sage uppercase tracking-[0.3em] font-bold text-xs mb-4 reveal" data-i18n="pillars.eyebrow">Nuestros Valores</p>
+                <h2 class="font-serif text-4xl md:text-5xl lg:text-7xl uppercase headline-spacing text-brand-dark reveal reveal-delay-1" data-i18n-html="pillars.title">
+                    Nuestros <span class="text-brand-accent">Pilares</span>
+                </h2>
+            </div>
+
+            <div class="space-y-4">
+                <!-- Pillar 1 -->
+                <div class="group flex flex-col md:flex-row p-6 md:p-8 bg-white hover:bg-brand-sand/30 transition-colors duration-500 rounded-2xl reveal">
+                    <div class="w-full md:w-32 font-serif text-6xl md:text-7xl text-brand-dark/10 group-hover:text-brand-accent transition-colors duration-500 mb-4 md:mb-0 headline-spacing">01</div>
+                    <div class="flex-1">
+                        <h3 class="font-sans font-bold text-xl md:text-2xl uppercase tracking-tight mb-2" data-i18n="pillars.p1.title">Orgullo</h3>
+                        <p class="font-bold text-brand-dark mb-2" data-i18n="pillars.p1.headline">Apoyar al talento local es invertir en la identidad y el futuro de nuestra región.</p>
+                        <p class="text-brand-dark/70 font-medium" data-i18n="pillars.p1.text">Valoramos nuestra cultura y creemos en nuestra gente, mostrando artesanos locales reales que representan con orgullo la identidad de nuestras comunidades.</p>
+                    </div>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="group flex flex-col md:flex-row p-6 md:p-8 bg-white hover:bg-brand-sand/30 transition-colors duration-500 rounded-2xl reveal reveal-delay-1">
+                    <div class="w-full md:w-32 font-serif text-6xl md:text-7xl text-brand-dark/10 group-hover:text-brand-accent transition-colors duration-500 mb-4 md:mb-0 headline-spacing">02</div>
+                    <div class="flex-1">
+                        <h3 class="font-sans font-bold text-xl md:text-2xl uppercase tracking-tight mb-2" data-i18n="pillars.p2.title">Autenticidad</h3>
+                        <p class="font-bold text-brand-dark mb-2" data-i18n="pillars.p2.headline">Obras originales, elaboradas a mano utilizando técnicas tradicionales transmitidas por generaciones.</p>
+                        <p class="text-brand-dark/70 font-medium" data-i18n="pillars.p2.text">Cada pieza es única, con una historia, un proceso y un rostro detrás. No son productos industriales ni reproducciones.</p>
+                    </div>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="group flex flex-col md:flex-row p-6 md:p-8 bg-white hover:bg-brand-sand/30 transition-colors duration-500 rounded-2xl reveal reveal-delay-2">
+                    <div class="w-full md:w-32 font-serif text-6xl md:text-7xl text-brand-dark/10 group-hover:text-brand-accent transition-colors duration-500 mb-4 md:mb-0 headline-spacing">03</div>
+                    <div class="flex-1">
+                        <h3 class="font-sans font-bold text-xl md:text-2xl uppercase tracking-tight mb-2" data-i18n="pillars.p3.title">Imagen</h3>
+                        <p class="font-bold text-brand-dark mb-2" data-i18n="pillars.p3.headline">Stands que se integran de forma armónica a los espacios del hotel.</p>
+                        <p class="text-brand-dark/70 font-medium" data-i18n="pillars.p3.text">Estructuras de madera de alta calidad, autosustentables y con iluminación propia. Artesanos con uniformes de gala típicos de la región.</p>
+                    </div>
+                </div>
+
+                <!-- Pillar 4 -->
+                <div class="group flex flex-col md:flex-row p-6 md:p-8 bg-white hover:bg-brand-sand/30 transition-colors duration-500 rounded-2xl reveal reveal-delay-3">
+                    <div class="w-full md:w-32 font-serif text-6xl md:text-7xl text-brand-dark/10 group-hover:text-brand-accent transition-colors duration-500 mb-4 md:mb-0 headline-spacing">04</div>
+                    <div class="flex-1">
+                        <h3 class="font-sans font-bold text-xl md:text-2xl uppercase tracking-tight mb-2" data-i18n="pillars.p4.title">Vocación</h3>
+                        <p class="font-bold text-brand-dark mb-2" data-i18n="pillars.p4.headline">Artesanos seleccionados por su sensibilidad, trato humano y experiencia en gran turismo.</p>
+                        <p class="text-brand-dark/70 font-medium" data-i18n="pillars.p4.text">Profesionales que entienden el ritmo, la expectativa y el nivel de servicio que exige un entorno hotelero premium.</p>
+                    </div>
+                </div>
+
+                <!-- Pillar 5 -->
+                <div class="group flex flex-col md:flex-row p-6 md:p-8 bg-white hover:bg-brand-sand/30 transition-colors duration-500 rounded-2xl reveal reveal-delay-4">
+                    <div class="w-full md:w-32 font-serif text-6xl md:text-7xl text-brand-dark/10 group-hover:text-brand-accent transition-colors duration-500 mb-4 md:mb-0 headline-spacing">05</div>
+                    <div class="flex-1">
+                        <h3 class="font-sans font-bold text-xl md:text-2xl uppercase tracking-tight mb-2" data-i18n="pillars.p5.title">Sustentabilidad</h3>
+                        <p class="font-bold text-brand-dark mb-2" data-i18n="pillars.p5.headline">Trabajamos bajo principios de responsabilidad social y ambiental.</p>
+                        <p class="text-brand-dark/70 font-medium" data-i18n="pillars.p5.text">Evitamos el uso de plásticos y materiales no sustentables, promoviendo prácticas conscientes y un impacto positivo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="py-24 lg:py-32 bg-brand-dark">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center mb-16">
+                <p class="text-brand-sage uppercase tracking-[0.3em] font-bold text-xs mb-4 reveal" data-i18n="services.eyebrow">Lo Que Ofrecemos</p>
+                <h2 class="font-serif text-4xl md:text-5xl lg:text-7xl uppercase headline-spacing text-white reveal reveal-delay-1" data-i18n-html="services.title">
+                    Nuestros <span class="text-brand-accent">Servicios</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="group cursor-pointer reveal">
+                    <div class="relative overflow-hidden aspect-[3/4] mb-6 rounded-2xl bg-brand-sage/20">
+                        <div class="absolute inset-0 bg-brand-dark/20 z-10 group-hover:bg-transparent transition-colors duration-500"></div>
+                        <img src="images/photos/img-006-032.jpg" alt="Stands Premium" class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700 ease-out">
+                    </div>
+                    <h3 class="font-serif text-3xl md:text-4xl mb-3 text-brand-accent uppercase headline-spacing" data-i18n="services.s1.title">Stands Premium</h3>
+                    <p class="text-brand-light/80 font-medium leading-relaxed" data-i18n="services.s1.text">Estructuras de madera de alta calidad, minimalistas y autosustentables con iluminación propia. Sin necesidad de conexión eléctrica.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group cursor-pointer reveal reveal-delay-1">
+                    <div class="relative overflow-hidden aspect-[3/4] mb-6 rounded-2xl bg-brand-sage/20">
+                        <div class="absolute inset-0 bg-brand-dark/20 z-10 group-hover:bg-transparent transition-colors duration-500"></div>
+                        <img src="images/photos/img-007-037.jpg" alt="Artesanos Profesionales" class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700 ease-out">
+                    </div>
+                    <h3 class="font-serif text-3xl md:text-4xl mb-3 text-brand-accent uppercase headline-spacing" data-i18n="services.s2.title">Artesanos Profesionales</h3>
+                    <p class="text-brand-light/80 font-medium leading-relaxed" data-i18n="services.s2.text">Con uniforme de gala típico de la región, vocación de servicio y experiencia en hoteles de gran turismo.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group cursor-pointer reveal reveal-delay-2">
+                    <div class="relative overflow-hidden aspect-[3/4] mb-6 rounded-2xl bg-brand-sage/20">
+                        <div class="absolute inset-0 bg-brand-dark/20 z-10 group-hover:bg-transparent transition-colors duration-500"></div>
+                        <img src="images/photos/img-013-097.jpg" alt="Apoyo Promocional" class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700 ease-out">
+                    </div>
+                    <h3 class="font-serif text-3xl md:text-4xl mb-3 text-brand-accent uppercase headline-spacing" data-i18n="services.s3.title">Apoyo Promocional</h3>
+                    <p class="text-brand-light/80 font-medium leading-relaxed" data-i18n="services.s3.text">Danzantes, músicos y decoraciones temáticas que activan la atmósfera y atraen huéspedes de forma orgánica.</p>
+                </div>
+            </div>
+
+            <!-- Craft Types -->
+            <div class="mt-20 reveal">
+                <div class="border-l-4 border-brand-accent pl-8 mb-10">
+                    <h3 class="font-serif text-4xl md:text-5xl text-white uppercase headline-spacing" data-i18n="services.crafts.title">Variedad de Artesanías</h3>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-4">
+                    <div class="flex items-center gap-3 text-brand-light/90 font-semibold">
+                        <span class="w-2 h-2 rounded-full bg-brand-accent flex-shrink-0"></span>
+                        <span data-i18n="crafts.chaquira">Arte en Chaquira</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-brand-light/90 font-semibold">
+                        <span class="w-2 h-2 rounded-full bg-brand-accent flex-shrink-0"></span>
+                        <span data-i18n="crafts.onix">Trabajo en Ónix</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-brand-light/90 font-semibold">
+                        <span class="w-2 h-2 rounded-full bg-brand-accent flex-shrink-0"></span>
+                        <span data-i18n="crafts.madera">Madera Tallada</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-brand-light/90 font-semibold">
+                        <span class="w-2 h-2 rounded-full bg-brand-accent flex-shrink-0"></span>
+                        <span data-i18n="crafts.monedas">Monedas Caladas</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-brand-light/90 font-semibold">
+                        <span class="w-2 h-2 rounded-full bg-brand-accent flex-shrink-0"></span>
+                        <span data-i18n="crafts.macrame">Macramé</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-brand-light/90 font-semibold">
+                        <span class="w-2 h-2 rounded-full bg-brand-accent flex-shrink-0"></span>
+                        <span data-i18n="crafts.oleo">Óleo con Dedos</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-brand-light/90 font-semibold">
+                        <span class="w-2 h-2 rounded-full bg-brand-accent flex-shrink-0"></span>
+                        <span data-i18n="crafts.collares">Collares y Pulseras</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-brand-light/90 font-semibold">
+                        <span class="w-2 h-2 rounded-full bg-brand-accent flex-shrink-0"></span>
+                        <span data-i18n="crafts.barro">Barro Pintado</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-brand-light/90 font-semibold">
+                        <span class="w-2 h-2 rounded-full bg-brand-accent flex-shrink-0"></span>
+                        <span data-i18n="crafts.epoxica">Epóxica</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-brand-light/90 font-semibold">
+                        <span class="w-2 h-2 rounded-full bg-brand-accent flex-shrink-0"></span>
+                        <span data-i18n="crafts.bordado">Bordado</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-brand-light/90 font-semibold">
+                        <span class="w-2 h-2 rounded-full bg-brand-accent flex-shrink-0"></span>
+                        <span data-i18n="crafts.piel">Trabajo en Piel</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-brand-light/90 font-semibold">
+                        <span class="w-2 h-2 rounded-full bg-brand-accent flex-shrink-0"></span>
+                        <span data-i18n="crafts.lamparas">Lámparas en PVC</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-brand-light/90 font-semibold">
+                        <span class="w-2 h-2 rounded-full bg-brand-accent flex-shrink-0"></span>
+                        <span data-i18n="crafts.telar">Trabajo en Telar</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-brand-light/90 font-semibold">
+                        <span class="w-2 h-2 rounded-full bg-brand-accent flex-shrink-0"></span>
+                        <span data-i18n="crafts.cobre">Trabajo en Cobre</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workshops Section -->
+    <section id="talleres" class="py-24 lg:py-32 bg-brand-light">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-16">
+                <div>
+                    <p class="text-brand-sage uppercase tracking-[0.3em] font-bold text-xs mb-4 reveal" data-i18n="workshops.eyebrow">Talleres Interactivos</p>
+                    <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl uppercase headline-spacing text-brand-dark mb-8 reveal reveal-delay-1" data-i18n-html="workshops.title">
+                        Experiencias<br><span class="text-brand-accent">Participativas</span>
+                    </h2>
+                    <p class="text-brand-dark/80 font-medium text-lg leading-relaxed mb-8 reveal reveal-delay-2" data-i18n="workshops.description">
+                        Clases artesanales presenciales donde los artesanos comparten su conocimiento y pasión. El huésped no solo observa, sino crea y participa activamente, llevándose un recuerdo hecho por ellos mismos.
+                    </p>
+                </div>
+
+                <div class="relative reveal reveal-delay-1">
+                    <div class="aspect-video rounded-3xl overflow-hidden">
+                        <img src="images/photos/img-017-152.jpg" alt="Taller artesanal" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+                <div class="border-l-4 border-brand-accent pl-6 py-2 reveal">
+                    <div class="font-serif text-5xl md:text-6xl text-brand-dark headline-spacing leading-none">45</div>
+                    <div class="font-black uppercase tracking-widest text-xs text-brand-sage mt-1" data-i18n="workshops.stat1.label">Minutos</div>
+                    <p class="text-sm font-medium text-brand-dark/60 mt-2" data-i18n="workshops.stat1.desc">Duración ideal</p>
+                </div>
+                <div class="border-l-4 border-brand-accent pl-6 py-2 reveal reveal-delay-1">
+                    <div class="font-serif text-5xl md:text-6xl text-brand-dark headline-spacing leading-none">20</div>
+                    <div class="font-black uppercase tracking-widest text-xs text-brand-sage mt-1" data-i18n="workshops.stat2.label">Participantes</div>
+                    <p class="text-sm font-medium text-brand-dark/60 mt-2" data-i18n="workshops.stat2.desc">Grupos máximo</p>
+                </div>
+                <div class="border-l-4 border-brand-accent pl-6 py-2 reveal reveal-delay-2">
+                    <div class="font-serif text-5xl md:text-6xl text-brand-dark headline-spacing leading-none">100%</div>
+                    <div class="font-black uppercase tracking-widest text-xs text-brand-sage mt-1" data-i18n="workshops.stat3.label">Material</div>
+                    <p class="text-sm font-medium text-brand-dark/60 mt-2" data-i18n="workshops.stat3.desc">Incluido</p>
+                </div>
+                <div class="border-l-4 border-brand-accent pl-6 py-2 reveal reveal-delay-3">
+                    <div class="font-serif text-5xl md:text-6xl text-brand-dark headline-spacing leading-none">1</div>
+                    <div class="font-black uppercase tracking-widest text-xs text-brand-sage mt-1" data-i18n="workshops.stat4.label">Pieza</div>
+                    <p class="text-sm font-medium text-brand-dark/60 mt-2" data-i18n="workshops.stat4.desc">De recuerdo</p>
+                </div>
+            </div>
+
+            <!-- Workshop Types -->
+            <div class="bg-brand-sand/40 p-8 md:p-12 border-2 border-brand-sand rounded-3xl reveal">
+                <h3 class="font-serif text-3xl md:text-4xl mb-8 border-b-2 border-brand-dark/10 pb-4 uppercase headline-spacing" data-i18n="workshops.types.title">Tipos de Talleres</h3>
+                <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-4 gap-x-8 text-brand-dark font-bold">
+                    <li class="flex items-center gap-3"><span class="w-3 h-3 rounded-full bg-brand-accent flex-shrink-0"></span> <span data-i18n="workshops.types.t1">Paisajes con dedos (óleo)</span></li>
+                    <li class="flex items-center gap-3"><span class="w-3 h-3 rounded-full bg-brand-accent flex-shrink-0"></span> <span data-i18n="workshops.types.t2">Pintando cerámica</span></li>
+                    <li class="flex items-center gap-3"><span class="w-3 h-3 rounded-full bg-brand-accent flex-shrink-0"></span> <span data-i18n="workshops.types.t3">Tejiendo tu nombre (pulseras)</span></li>
+                    <li class="flex items-center gap-3"><span class="w-3 h-3 rounded-full bg-brand-accent flex-shrink-0"></span> <span data-i18n="workshops.types.t4">Costalitos con sellos</span></li>
+                    <li class="flex items-center gap-3"><span class="w-3 h-3 rounded-full bg-brand-accent flex-shrink-0"></span> <span data-i18n="workshops.types.t5">Pintando sombreros</span></li>
+                    <li class="flex items-center gap-3"><span class="w-3 h-3 rounded-full bg-brand-accent flex-shrink-0"></span> <span data-i18n="workshops.types.t6">Arte punto a punto (Huichol)</span></li>
+                    <li class="flex items-center gap-3"><span class="w-3 h-3 rounded-full bg-brand-accent flex-shrink-0"></span> <span data-i18n="workshops.types.t7">Macetitas pintadas</span></li>
+                    <li class="flex items-center gap-3"><span class="w-3 h-3 rounded-full bg-brand-accent flex-shrink-0"></span> <span data-i18n="workshops.types.t8">Calaveritas fluorescentes</span></li>
+                    <li class="flex items-center gap-3"><span class="w-3 h-3 rounded-full bg-brand-accent flex-shrink-0"></span> <span data-i18n="workshops.types.t9">Minerales en joyería</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="galeria" class="py-24 lg:py-32 bg-brand-sand/30">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center mb-16">
+                <p class="text-brand-sage uppercase tracking-[0.3em] font-bold text-xs mb-4 reveal" data-i18n="gallery.eyebrow">Nuestro Trabajo</p>
+                <h2 class="font-serif text-4xl md:text-5xl lg:text-7xl uppercase headline-spacing text-brand-dark reveal reveal-delay-1">
+                    <span class="text-brand-accent" data-i18n="gallery.title">Galería</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="col-span-2 row-span-2 rounded-2xl overflow-hidden reveal">
+                    <img src="images/photos/img-008-042.jpg" alt="Galería" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="rounded-2xl overflow-hidden reveal reveal-delay-1">
+                    <img src="images/photos/img-009-047.jpg" alt="Galería" class="w-full h-full object-cover aspect-square hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="rounded-2xl overflow-hidden reveal reveal-delay-2">
+                    <img src="images/photos/img-009-050.jpg" alt="Galería" class="w-full h-full object-cover aspect-square hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="rounded-2xl overflow-hidden reveal reveal-delay-2">
+                    <img src="images/photos/img-010-061.jpg" alt="Galería" class="w-full h-full object-cover aspect-square hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="rounded-2xl overflow-hidden reveal reveal-delay-3">
+                    <img src="images/photos/img-010-064.jpg" alt="Galería" class="w-full h-full object-cover aspect-square hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="rounded-2xl overflow-hidden reveal reveal-delay-3">
+                    <img src="images/photos/img-011-075.jpg" alt="Galería" class="w-full h-full object-cover aspect-square hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="rounded-2xl overflow-hidden reveal reveal-delay-4">
+                    <img src="images/photos/img-011-078.jpg" alt="Galería" class="w-full h-full object-cover aspect-square hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="rounded-2xl overflow-hidden reveal reveal-delay-4">
+                    <img src="images/photos/img-012-089.jpg" alt="Galería" class="w-full h-full object-cover aspect-square hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="rounded-2xl overflow-hidden reveal">
+                    <img src="images/photos/img-019-172.jpg" alt="Galería" class="w-full h-full object-cover aspect-square hover:scale-105 transition-transform duration-700">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="py-24 lg:py-32 bg-brand-dark relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+            <img src="images/photos/img-003-017.jpg" alt="" class="w-full h-full object-cover">
+        </div>
+
+        <div class="relative z-10 max-w-4xl mx-auto px-6 lg:px-12 text-center">
+            <p class="text-brand-sage uppercase tracking-[0.3em] font-bold text-xs mb-4 reveal" data-i18n="contact.eyebrow">Trabajemos Juntos</p>
+            <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl uppercase headline-spacing text-white mb-8 reveal reveal-delay-1" data-i18n-html="contact.title">
+                ¿Listo para transformar<br>la <span class="text-brand-accent">experiencia</span>?
+            </h2>
+            <p class="text-brand-light/80 font-medium text-lg max-w-2xl mx-auto mb-12 reveal reveal-delay-2" data-i18n="contact.description">
+                Confiamos en que esta colaboración no solo será una actividad atractiva, sino también una inversión redituable hacia una experiencia hotelera más completa, auténtica y memorable.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                <div class="bg-brand-light/5 border border-brand-light/10 p-8 rounded-2xl text-left reveal reveal-delay-2">
+                    <h3 class="font-bold text-white text-lg mb-1">Lic. Marita Reyna Barrera López</h3>
+                    <p class="text-brand-sage text-sm mb-4" data-i18n="contact.role1">Directora de Operaciones</p>
+                    <div class="flex items-center gap-3 text-brand-light font-bold text-xl">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        998 139 3285
+                    </div>
+                </div>
+                <div class="bg-brand-light/5 border border-brand-light/10 p-8 rounded-2xl text-left reveal reveal-delay-3">
+                    <h3 class="font-bold text-white text-lg mb-1">Lic. Zaira Jimena Jain Barrera</h3>
+                    <p class="text-brand-sage text-sm mb-4" data-i18n="contact.role2">Coordinadora de Eventos</p>
+                    <div class="flex items-center gap-3 text-brand-light font-bold text-xl">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        998 539 1748
+                    </div>
+                </div>
+            </div>
+
+            <a href="https://wa.me/529981393285?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20Fiesta%20Artesanal%20Colibrí"
+               target="_blank"
+               class="inline-flex items-center gap-3 bg-[#25D366] text-white px-8 py-4 rounded-full text-sm uppercase tracking-widest font-bold hover:brightness-110 transition-all shadow-lg shadow-[#25D366]/30 reveal reveal-delay-4"
+               data-i18n="contact.whatsapp">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Escríbenos por WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark border-t border-brand-light/10 py-8">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <img src="logo/logo-bw.png" alt="Fiesta Artesanal Colibrí" class="h-10 w-auto opacity-70">
+            </div>
+            <p class="text-brand-light/50 text-sm font-medium" data-i18n="footer.copyright">
+                © 2024 Fiesta Artesanal Colibrí. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // ===========================================
+        // TRANSLATIONS
+        // ===========================================
+        const translations = {
+            es: {
+                // Nav
+                'nav.about': 'Nosotros',
+                'nav.pillars': 'Pilares',
+                'nav.services': 'Servicios',
+                'nav.workshops': 'Talleres',
+                'nav.gallery': 'Galería',
+                'nav.contact': 'Contáctanos',
+
+                // Hero
+                'hero.eyebrow': 'Experiencias Culturales para Hoteles',
+                'hero.tagline': 'Una experiencia viva: un encuentro auténtico donde cultura y talento local laten al mismo ritmo, dejando en cada huésped un recuerdo que permanece para siempre.',
+                'hero.cta': 'Contáctanos',
+                'hero.cta2': 'Conoce Más',
+
+                // About
+                'about.eyebrow': 'Sobre Nosotros',
+                'about.title': 'Cultura que genera<br><span class="text-brand-accent">memorabilidad</span>',
+                'about.p1': 'No se trata solo de exhibir artesanía, sino de ofrecer a los huéspedes <strong class="text-brand-dark">un encuentro directo con los artesanos</strong> de la Riviera Maya, donde pueden observar el proceso creativo, dialogar con quien da vida a cada pieza y adquirir obras auténticas directamente de su creador.',
+                'about.highlight': 'La Fiesta Artesanal Colibrí transforma los espacios en una experiencia viva de cultura, sensibilidad y autenticidad local.',
+                'about.p2': 'Esta experiencia enriquece la percepción hacia el hotel, <strong class="text-brand-dark">fortalece su compromiso social</strong> y convierte cada visita en un recuerdo significativo que trasciende la estancia.',
+
+                // Pillars
+                'pillars.eyebrow': 'Nuestros Valores',
+                'pillars.title': 'Nuestros <span class="text-brand-accent">Pilares</span>',
+                'pillars.p1.title': 'Orgullo',
+                'pillars.p1.headline': 'Apoyar al talento local es invertir en la identidad y el futuro de nuestra región.',
+                'pillars.p1.text': 'Valoramos nuestra cultura y creemos en nuestra gente, mostrando artesanos locales reales que representan con orgullo la identidad de nuestras comunidades.',
+                'pillars.p2.title': 'Autenticidad',
+                'pillars.p2.headline': 'Obras originales, elaboradas a mano utilizando técnicas tradicionales transmitidas por generaciones.',
+                'pillars.p2.text': 'Cada pieza es única, con una historia, un proceso y un rostro detrás. No son productos industriales ni reproducciones.',
+                'pillars.p3.title': 'Imagen',
+                'pillars.p3.headline': 'Stands que se integran de forma armónica a los espacios del hotel.',
+                'pillars.p3.text': 'Estructuras de madera de alta calidad, autosustentables y con iluminación propia. Artesanos con uniformes de gala típicos de la región.',
+                'pillars.p4.title': 'Vocación',
+                'pillars.p4.headline': 'Artesanos seleccionados por su sensibilidad, trato humano y experiencia en gran turismo.',
+                'pillars.p4.text': 'Profesionales que entienden el ritmo, la expectativa y el nivel de servicio que exige un entorno hotelero premium.',
+                'pillars.p5.title': 'Sustentabilidad',
+                'pillars.p5.headline': 'Trabajamos bajo principios de responsabilidad social y ambiental.',
+                'pillars.p5.text': 'Evitamos el uso de plásticos y materiales no sustentables, promoviendo prácticas conscientes y un impacto positivo.',
+
+                // Services
+                'services.eyebrow': 'Lo Que Ofrecemos',
+                'services.title': 'Nuestros <span class="text-brand-accent">Servicios</span>',
+                'services.s1.title': 'Stands Premium',
+                'services.s1.text': 'Estructuras de madera de alta calidad, minimalistas y autosustentables con iluminación propia. Sin necesidad de conexión eléctrica.',
+                'services.s2.title': 'Artesanos Profesionales',
+                'services.s2.text': 'Con uniforme de gala típico de la región, vocación de servicio y experiencia en hoteles de gran turismo.',
+                'services.s3.title': 'Apoyo Promocional',
+                'services.s3.text': 'Danzantes, músicos y decoraciones temáticas que activan la atmósfera y atraen huéspedes de forma orgánica.',
+                'services.crafts.title': 'Variedad de Artesanías',
+
+                // Crafts
+                'crafts.chaquira': 'Arte en Chaquira',
+                'crafts.onix': 'Trabajo en Ónix',
+                'crafts.madera': 'Madera Tallada',
+                'crafts.monedas': 'Monedas Caladas',
+                'crafts.macrame': 'Macramé',
+                'crafts.oleo': 'Óleo con Dedos',
+                'crafts.collares': 'Collares y Pulseras',
+                'crafts.barro': 'Barro Pintado',
+                'crafts.epoxica': 'Epóxica',
+                'crafts.bordado': 'Bordado',
+                'crafts.piel': 'Trabajo en Piel',
+                'crafts.lamparas': 'Lámparas en PVC',
+                'crafts.telar': 'Trabajo en Telar',
+                'crafts.cobre': 'Trabajo en Cobre',
+
+                // Workshops
+                'workshops.eyebrow': 'Talleres Interactivos',
+                'workshops.title': 'Experiencias<br><span class="text-brand-accent">Participativas</span>',
+                'workshops.description': 'Clases artesanales presenciales donde los artesanos comparten su conocimiento y pasión. El huésped no solo observa, sino crea y participa activamente, llevándose un recuerdo hecho por ellos mismos.',
+                'workshops.stat1.label': 'Minutos',
+                'workshops.stat1.desc': 'Duración ideal',
+                'workshops.stat2.label': 'Participantes',
+                'workshops.stat2.desc': 'Grupos máximo',
+                'workshops.stat3.label': 'Material',
+                'workshops.stat3.desc': 'Incluido',
+                'workshops.stat4.label': 'Pieza',
+                'workshops.stat4.desc': 'De recuerdo',
+                'workshops.types.title': 'Tipos de Talleres',
+                'workshops.types.t1': 'Paisajes con dedos (óleo)',
+                'workshops.types.t2': 'Pintando cerámica',
+                'workshops.types.t3': 'Tejiendo tu nombre (pulseras)',
+                'workshops.types.t4': 'Costalitos con sellos',
+                'workshops.types.t5': 'Pintando sombreros',
+                'workshops.types.t6': 'Arte punto a punto (Huichol)',
+                'workshops.types.t7': 'Macetitas pintadas',
+                'workshops.types.t8': 'Calaveritas fluorescentes',
+                'workshops.types.t9': 'Minerales en joyería',
+
+                // Gallery
+                'gallery.eyebrow': 'Nuestro Trabajo',
+                'gallery.title': 'Galería',
+
+                // Contact
+                'contact.eyebrow': 'Trabajemos Juntos',
+                'contact.title': '¿Listo para transformar<br>la <span class="text-brand-accent">experiencia</span>?',
+                'contact.description': 'Confiamos en que esta colaboración no solo será una actividad atractiva, sino también una inversión redituable hacia una experiencia hotelera más completa, auténtica y memorable.',
+                'contact.role1': 'Directora de Operaciones',
+                'contact.role2': 'Coordinadora de Eventos',
+                'contact.whatsapp': 'Escríbenos por WhatsApp',
+
+                // Footer
+                'footer.copyright': '© 2024 Fiesta Artesanal Colibrí. Todos los derechos reservados.'
+            },
+            en: {
+                // Nav
+                'nav.about': 'About',
+                'nav.pillars': 'Pillars',
+                'nav.services': 'Services',
+                'nav.workshops': 'Workshops',
+                'nav.gallery': 'Gallery',
+                'nav.contact': 'Contact Us',
+
+                // Hero
+                'hero.eyebrow': 'Cultural Experiences for Hotels',
+                'hero.tagline': 'A living experience: an authentic encounter where culture and local talent beat in rhythm, leaving each guest with a memory that lasts forever.',
+                'hero.cta': 'Contact Us',
+                'hero.cta2': 'Learn More',
+
+                // About
+                'about.eyebrow': 'About Us',
+                'about.title': 'Culture that creates<br><span class="text-brand-accent">memorability</span>',
+                'about.p1': 'It\'s not just about displaying crafts, but offering guests <strong class="text-brand-dark">a direct encounter with artisans</strong> from the Riviera Maya, where they can observe the creative process, dialogue with the creators, and acquire authentic works directly from them.',
+                'about.highlight': 'Fiesta Artesanal Colibrí transforms spaces into a living experience of culture, sensitivity, and local authenticity.',
+                'about.p2': 'This experience enriches the perception of the hotel, <strong class="text-brand-dark">strengthens its social commitment</strong>, and turns each visit into a meaningful memory that transcends the stay.',
+
+                // Pillars
+                'pillars.eyebrow': 'Our Values',
+                'pillars.title': 'Our <span class="text-brand-accent">Pillars</span>',
+                'pillars.p1.title': 'Pride',
+                'pillars.p1.headline': 'Supporting local talent is investing in the identity and future of our region.',
+                'pillars.p1.text': 'We value our culture and believe in our people, showcasing real local artisans who proudly represent the identity of our communities.',
+                'pillars.p2.title': 'Authenticity',
+                'pillars.p2.headline': 'Original works, handcrafted using traditional techniques passed down through generations.',
+                'pillars.p2.text': 'Each piece is unique, with a story, a process, and a face behind it. No industrial products or reproductions.',
+                'pillars.p3.title': 'Image',
+                'pillars.p3.headline': 'Stands that harmoniously integrate into hotel spaces.',
+                'pillars.p3.text': 'High-quality wooden structures, self-sustainable with built-in lighting. Artisans wearing traditional regional formal attire.',
+                'pillars.p4.title': 'Vocation',
+                'pillars.p4.headline': 'Artisans selected for their sensitivity, human touch, and experience in luxury tourism.',
+                'pillars.p4.text': 'Professionals who understand the rhythm, expectations, and service level required by a premium hotel environment.',
+                'pillars.p5.title': 'Sustainability',
+                'pillars.p5.headline': 'We work under principles of social and environmental responsibility.',
+                'pillars.p5.text': 'We avoid plastics and non-sustainable materials, promoting conscious practices and positive impact.',
+
+                // Services
+                'services.eyebrow': 'What We Offer',
+                'services.title': 'Our <span class="text-brand-accent">Services</span>',
+                'services.s1.title': 'Premium Stands',
+                'services.s1.text': 'High-quality wooden structures, minimalist and self-sustainable with built-in lighting. No electrical connection needed.',
+                'services.s2.title': 'Professional Artisans',
+                'services.s2.text': 'Wearing traditional regional formal attire, with service vocation and experience in luxury hotels.',
+                'services.s3.title': 'Promotional Support',
+                'services.s3.text': 'Dancers, musicians, and themed decorations that activate the atmosphere and organically attract guests.',
+                'services.crafts.title': 'Variety of Crafts',
+
+                // Crafts
+                'crafts.chaquira': 'Beadwork Art',
+                'crafts.onix': 'Onyx Work',
+                'crafts.madera': 'Carved Wood',
+                'crafts.monedas': 'Cut Coins',
+                'crafts.macrame': 'Macramé',
+                'crafts.oleo': 'Finger Oil Painting',
+                'crafts.collares': 'Necklaces & Bracelets',
+                'crafts.barro': 'Painted Clay',
+                'crafts.epoxica': 'Epoxy Resin',
+                'crafts.bordado': 'Embroidery',
+                'crafts.piel': 'Leather Work',
+                'crafts.lamparas': 'PVC Lamps',
+                'crafts.telar': 'Loom Work',
+                'crafts.cobre': 'Copper Work',
+
+                // Workshops
+                'workshops.eyebrow': 'Interactive Workshops',
+                'workshops.title': 'Participatory<br><span class="text-brand-accent">Experiences</span>',
+                'workshops.description': 'In-person artisan classes where craftspeople share their knowledge and passion. Guests don\'t just watch—they create and actively participate, taking home a keepsake they made themselves.',
+                'workshops.stat1.label': 'Minutes',
+                'workshops.stat1.desc': 'Ideal duration',
+                'workshops.stat2.label': 'Participants',
+                'workshops.stat2.desc': 'Maximum group',
+                'workshops.stat3.label': 'Materials',
+                'workshops.stat3.desc': 'Included',
+                'workshops.stat4.label': 'Piece',
+                'workshops.stat4.desc': 'As souvenir',
+                'workshops.types.title': 'Workshop Types',
+                'workshops.types.t1': 'Finger landscapes (oil)',
+                'workshops.types.t2': 'Ceramic painting',
+                'workshops.types.t3': 'Weave your name (bracelets)',
+                'workshops.types.t4': 'Stamped pouches',
+                'workshops.types.t5': 'Hat painting',
+                'workshops.types.t6': 'Dot-by-dot art (Huichol)',
+                'workshops.types.t7': 'Painted mini pots',
+                'workshops.types.t8': 'Fluorescent skulls',
+                'workshops.types.t9': 'Mineral jewelry',
+
+                // Gallery
+                'gallery.eyebrow': 'Our Work',
+                'gallery.title': 'Gallery',
+
+                // Contact
+                'contact.eyebrow': 'Let\'s Work Together',
+                'contact.title': 'Ready to transform<br>the <span class="text-brand-accent">experience</span>?',
+                'contact.description': 'We trust that this collaboration will not only be an attractive activity, but also a profitable investment towards a more complete, authentic, and memorable hotel experience.',
+                'contact.role1': 'Operations Director',
+                'contact.role2': 'Events Coordinator',
+                'contact.whatsapp': 'Message us on WhatsApp',
+
+                // Footer
+                'footer.copyright': '© 2024 Fiesta Artesanal Colibrí. All rights reserved.'
+            }
+        };
+
+        // ===========================================
+        // LANGUAGE FUNCTIONS
+        // ===========================================
+        let currentLang = localStorage.getItem('lang') || 'es';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('lang', lang);
+            document.documentElement.lang = lang;
+
+            // Update toggle buttons
+            document.getElementById('langEs').classList.toggle('active', lang === 'es');
+            document.getElementById('langEn').classList.toggle('active', lang === 'en');
+
+            // Update all text elements
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            // Update HTML elements (with tags)
+            document.querySelectorAll('[data-i18n-html]').forEach(el => {
+                const key = el.getAttribute('data-i18n-html');
+                if (translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+
+            // Update WhatsApp link text based on language
+            const waLink = document.querySelector('a[href*="wa.me"]');
+            if (waLink && lang === 'en') {
+                waLink.href = 'https://wa.me/529981393285?text=Hello,%20I\'m%20interested%20in%20learning%20more%20about%20Fiesta%20Artesanal%20Colibrí';
+            } else if (waLink) {
+                waLink.href = 'https://wa.me/529981393285?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20Fiesta%20Artesanal%20Colibrí';
+            }
+        }
+
+        // Initialize language on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            setLanguage(currentLang);
+        });
+
+        // ===========================================
+        // NAVIGATION
+        // ===========================================
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                nav.classList.add('bg-brand-dark/95', 'backdrop-blur-md', 'shadow-lg', 'nav-scrolled');
+            } else {
+                nav.classList.remove('bg-brand-dark/95', 'backdrop-blur-md', 'shadow-lg', 'nav-scrolled');
+            }
+        });
+
+        // Mobile menu
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // ===========================================
+        // SCROLL ANIMATIONS
+        // ===========================================
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

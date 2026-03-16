@@ -1,0 +1,113 @@
+# FIESTA ARTESANAL COLIBRÍ - IMAGE DESCRIPTIONS
+
+================================================================================
+## LOGO
+================================================================================
+logo/logo-colibri.jpg - Main logo featuring a colorful hummingbird (colibrí) with
+                        "Fiesta artesanal" text in elegant script
+
+================================================================================
+## PHOTOS (images/photos/) - Main artisan photos by page/section
+================================================================================
+
+### PAGE 1 - Hero
+- Background: Dark teal/turquoise gradient
+
+### PAGE 3 - Pillars Intro
+- Jungle/tropical foliage image on left side
+
+### PAGE 4 - ORGULLO (Pride)
+- Artisan stand with telar (loom) work at night with colorful textiles
+
+### PAGE 5 - AUTENTICIDAD (Authenticity)
+- Artisan working on painted wooden vessels (vasijas de madera)
+- Display of colorful hand-painted wooden bowls
+
+### PAGE 6 - IMAGEN (Image)
+- Smiling male artisan in traditional embroidered shirt
+- Stand displaying copper work (trabajo en cobre)
+- Sign shows "MOEK" brand
+
+### PAGE 7 - VOCACIÓN (Vocation)
+- Happy male artisan at stand with colorful clay art (arte en barro)
+- Display of painted skulls, figurines, and decorative items
+- Sign: "Art in Volcanic Stone"
+
+### PAGE 8 - SUSTENTABILIDAD (Sustainability)
+- Female artisan in traditional white embroidered dress
+- Stand with embroidered items (bordados) and stuffed animals
+- Sign: "Bordados SHALOM"
+
+### PAGE 9 - VARIEDAD DE GIROS (Craft Variety) - Set 1
+- Arte en CHAQUIRA: Beadwork jewelry display with "Crystal Beads" sign
+- Trabajo en ONIX: Onyx stone sculptures with palm trees in background
+- MADERA tallada: Carved wooden animals and figurines
+- MONEDAS caladas: Cut coin jewelry display
+
+### PAGE 10 - VARIEDAD DE GIROS - Set 2
+- MÁCRAME: Dreamcatchers and macramé pieces, "Bracelets with your name" sign
+- ÓLEO con dedos: Artist with finger-painted artwork landscapes
+- COLLARES y pulseras: Necklaces and bracelets with mineral stones
+- BARRO pintado: Painted clay skulls and figurines display
+
+### PAGE 11 - VARIEDAD DE GIROS - Set 3
+- Trabajos con EPÓXICA: Epoxy resin art with "Gemas Resin Art" sign
+- BORDADO: Embroidered bags, pouches, colorful animals
+- Trabajo en PIEL: Leather bags and accessories, "Made of Leather" sign
+- LÁMPARAS en PVC: Colorful illuminated PVC lamps
+
+### PAGE 12 - APOYO PROMOCIONAL (Promotional Support) - Festive
+- Two people dressed as Día de los Muertos catrines (skeleton costumes)
+- Artisan stand decorated with "VIVA MEXICO" banner
+
+### PAGE 13 - APOYO PROMOCIONAL - Dancers
+- Traditional Aztec/Mayan dancer in full regalia with feathered headdress
+- Dancer performing by pool with "MEXICO" letters decoration
+
+### PAGE 14 - APOYO PROMOCIONAL - Gifts
+- Hotel staff receiving artisan items as promotional gifts
+- Multiple images of staff with handmade items
+
+### PAGE 17-18 - EXPERIENCIAS PARTICIPATIVAS (Workshops)
+- Group workshop session with participants at tables
+- Outdoor poolside workshop with tourists
+
+### PAGE 18 - Workshop Types
+- Paisajes con dedos (óleo): Finger painting class
+- Pintando cerámica: Ceramic painting
+- Tejiendo tu nombre: Bracelet weaving with artisan
+- Pintando sombreros: Hat painting workshop setup
+
+### PAGE 19 - More Workshops
+- Arte punto a punto (Huichol): Traditional Huichol beadwork
+- Macetitas pintadas: Pot painting workshop
+- Calaveritas fluorescente: Fluorescent skull painting (UV light)
+- Minerales en joyería: Jewelry making with minerals
+
+### PAGE 20-21 - Workshop Details
+- Group workshop sessions with participants
+
+================================================================================
+## DECORATIVE ELEMENTS (images/decorative/)
+================================================================================
+- Small UI elements, gradients, and decorative graphics
+- Page number indicators
+- Section dividers and color blocks
+
+================================================================================
+## BACKGROUNDS (images/backgrounds/)
+================================================================================
+- Teal/turquoise gradient backgrounds (hero pages)
+- Blue gradient backgrounds (workshop section)
+- Tropical foliage background
+- Decorative color blocks (red, lime green accents)
+
+================================================================================
+## COLOR PALETTE (from design)
+================================================================================
+- Primary: Teal/Turquoise (#2A7B7B approximately)
+- Secondary: Warm coral/orange tones
+- Accent: Lime green (used sparingly)
+- Accent: Red blocks
+- Text: White on dark backgrounds, Dark gray/teal on white backgrounds
+- Logo colors: Rainbow hummingbird (orange, green, blue, yellow, pink, magenta)

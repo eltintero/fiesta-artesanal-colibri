@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fiesta-artesanal-colibri.vercel.app/sitemap.xml
